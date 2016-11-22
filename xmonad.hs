@@ -52,8 +52,8 @@ modMask' = mod4Mask
 myWorkspaces    = ["1:main","2:web","3:vim","4:chat","5:music", "6:gimp", "7:misc"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c /home/brafales/.xmonad/.conky_dzen | dzen2 -x '2080' -w '1040' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
-myBitmapsDir = "/home/brafales/.xmonad/dzen2"
+myStatusBar = "conky -c ~/.xmonad/conky_dzen | dzen2 -x '2080' -w '1040' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+myBitmapsDir = "~/.xmonad/dzen2"
 --}}}
 -- Main {{{
 main = do
@@ -243,7 +243,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     
     -- quit, or restart
     , ((modMask .|. shiftMask,      xK_q        ), io (exitWith ExitSuccess))
-    , ((modMask,                    xK_q        ), spawn "/home/brafales/.cabal/bin/xmonad --recompile && /home/brafales/.cabal/bin/xmonad --restart")
+    , ((modMask,                    xK_q        ), spawn "xmonad --recompile && xmonad --restart")
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
